@@ -21,7 +21,7 @@ namespace JC_Family_demo_.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("JC_FamilyUserDb", throwIfV1Schema: false)
         {
         }
 

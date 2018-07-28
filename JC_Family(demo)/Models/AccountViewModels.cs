@@ -49,9 +49,9 @@ namespace JC_Family_demo_.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [MaxLength(40, ErrorMessage = "The {0} must be less than {1} characters long.")]
+        [Display(Name = "User")]
+        public string User { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

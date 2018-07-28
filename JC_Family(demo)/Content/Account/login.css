@@ -1,0 +1,137 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body {
+    height: 100%;
+    font-family: Poppins-Regular, sans-serif;
+}
+
+.container-login {
+    width: 100%;
+    height:100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-image:url(../imgs/background.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.block-login {
+    width: 500px;
+    background: rgba(203, 212, 210, 0.50);
+    border-radius: 10px;
+    padding-top: 30px;
+    padding-left:110px;
+    padding-right:110px;
+    padding-bottom:60px;
+}
+
+.login-form-title {
+    width: 100%;
+    display: block;
+    font-family: Montserrat-Medium;
+    font-size: 30px;
+    color: #555555;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom:30px;
+}
+
+.text-danger {
+    color: #b94a48;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    background: rgba(255, 255, 255,0.5);
+    height: 45px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    padding: 0 10px 0 10px;
+}
+
+.symbol-input100 {
+    width:20%;
+    display: block;
+    padding: 0 10px 0 10px;
+    margin:auto;
+    text-align:center;
+}
+
+.form-container
+{
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.wrap-input {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    background: rgba(255, 255, 255,0.5);
+    height: 45px;
+    border-radius: 10px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    padding-right:20px;
+}
+
+.lg-btn {
+    display: block;
+    cursor: pointer;
+    line-height: 41px;
+    background: rgba(0, 148, 255,0.3);
+    width: 100%;
+    height: 41px;
+    border-radius: 10px;
+    font-size: 18px;
+    border:none;
+}
+.lg-btn:hover {
+    background:rgba(0, 255, 255, 0.3);
+    color: #fff;
+}
+
+input{
+    padding-left:20px;
+}
+
+@media (max-width: 500px) {
+        .block-login {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+}
+
+@media (max-width: 390px) {
+    .block-login {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+
+
+
+
+
+
+
+
+

@@ -26,6 +26,8 @@ namespace JC_Family_demo_
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/Content/Account/css").Include(
+                      "~/Content/Account/login.css"));
         }
     }
 }
