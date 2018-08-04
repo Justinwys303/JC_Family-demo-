@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using JC_Family_demo_.Models;
+using System.Web.Caching;
 
 namespace JC_Family_demo_.Controllers
 {
@@ -57,6 +58,10 @@ namespace JC_Family_demo_.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            if(Request.IsAuthenticated)
+            {
+                return RedirectToLocal(returnUrl);
+            }
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -72,7 +77,12 @@ namespace JC_Family_demo_.Controllers
             {
                 return View(model);
             }
-
+            var loggedinUser = await UserManager.FindAsync(model.User, model.Password);
+            if (loggedinUser != null)
+            {
+                // change the security stamp only on correct username/password
+                await UserManager.UpdateSecurityStampAsync(loggedinUser.Id);
+            }
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.User, model.Password, model.RememberMe, shouldLockout: false);
@@ -89,6 +99,21 @@ namespace JC_Family_demo_.Controllers
                     ModelState.AddModelError("", "Invalid login attempt.");
                     return View(model);
             }
+        }
+
+        [AllowAnonymous]
+        public ActionResult LoginError(string error)
+        {
+            if(HttpContext.Cache.Get(HttpContext.User.Identity.Name) == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            if(HttpContext.Cache[HttpContext.User.Identity.Name].ToString() == HttpContext.Session.SessionID)
+            {
+                return RedirectToAction("index", "Home");
+            }
+            ViewBag.Error = error;
+            return View();
         }
 
         //

@@ -8,6 +8,7 @@ namespace JC_Family_demo_
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new Areas.filter.LoginActionFilterAttribute());
         }
     }
 }

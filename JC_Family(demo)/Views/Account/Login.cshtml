@@ -6,10 +6,9 @@
 
 <div class="block-login">
     <span class="login-form-title">@ViewBag.Title</span>
-    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form"}))
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-container">
             <div class="wrap-input">
                 <span class="symbol-input100">
@@ -17,8 +16,8 @@
                 </span>
                 @Html.TextBoxFor(m => m.User, new { @class = "form-control", placeholder = "User" })
             </div>
-        <br />
-        @Html.ValidationMessageFor(m => m.User, "", new { @class = "text-danger" })
+            <br />
+            @Html.ValidationMessageFor(m => m.User, "", new { @class = "text-danger" })
         </div>
 
         <div class="form-container">
@@ -32,6 +31,14 @@
             @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
         </div>
 
+        <div class="validation-container">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="loader-container" style="display:none">
+            <span id="loader" ></span>
+        </div>
+
         <div class="form-container">
             @Html.CheckBoxFor(m => m.RememberMe)
             @Html.LabelFor(m => m.RememberMe)
@@ -42,3 +49,7 @@
         </div>
     }
 </div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval");
+    <script src="~/Scripts/App/login.js"></script>;
+}

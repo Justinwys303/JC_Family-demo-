@@ -20,6 +20,22 @@ namespace JC_Family_demo_
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            
+        }
+        protected void Session_Start(object sender, EventArgs e)
+        {
+            Session["init"] = 0;
+        }
+        protected void Session_End(object sender, EventArgs e)
+        {
+            if(User.Identity.IsAuthenticated)
+            {
+                if(HttpContext.Current.Cache.Get(User.Identity.Name) != null)
+                {
+                    HttpContext.Current.Cache.Remove(User.Identity.Name);
+                }
+            }
+            Session.Abandon();
         }
     }
 }

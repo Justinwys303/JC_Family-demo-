@@ -77,6 +77,42 @@ body {
     margin-top: 20px;
 }
 
+.validation-container {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.validation-container ul {
+    list-style-type: none;
+}
+
+.loader-container {
+    margin: 0 auto;
+    width: 100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#loader {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #3498db;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: load 2s linear infinite;
+}
+
+@keyframes load{
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 .wrap-input {
     display: flex;
     justify-content: flex-start;
@@ -89,7 +125,7 @@ body {
     font-size: 18px;
     border: none;
     outline: none;
-    padding-right:20px;
+    padding-right: 20px;
 }
 
 .lg-btn {
@@ -103,7 +139,26 @@ body {
     font-size: 18px;
     border:none;
 }
-.lg-btn:hover {
+
+/*.lg-btn-ok {
+    display: block;
+    cursor: pointer;
+    line-height: 41px;
+    background: rgba(0, 148, 255,0.3);
+    width: 30%;
+    height: 41px;
+    border-radius: 10px;
+    font-size: 18px;
+    border: none;
+}*/
+
+.login-link{
+    text-underline-position:below;
+    text-align:start;
+    color:blue;
+}
+
+.lg-btn:hover .lg-btn-ok:hover {
     background:rgba(0, 255, 255, 0.3);
     color: #fff;
 }

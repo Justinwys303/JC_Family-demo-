@@ -1,0 +1,8 @@
+﻿@{
+    ViewBag.Title = "异常";
+}
+
+<div class="block-login">
+    <span>@ViewBag.Error</span>
+    @Html.ActionLink("click here to log in", "Login", "Account", new { @class = "login-link" });
+</div>
